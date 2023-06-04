@@ -8,7 +8,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <h5 class="card-title">Data Produk</h5>
-                            <h6 class="card-subtitle">Data Produk Pasar Pedia</h6>
+                            <h6 class="card-subtitle">Data Produk Pasarpedia</h6>
                         </div>
                         <div class="ml-auto">
                             <div>

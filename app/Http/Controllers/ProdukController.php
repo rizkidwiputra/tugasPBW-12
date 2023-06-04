@@ -49,7 +49,7 @@ class ProdukController extends Controller
 			'harga' => $request->harga,
 			'nama_produk' => $request->nama_produk
 		]);
-		// alihkan halaman ke halaman pegawai
+		// alihkan halaman ke halaman produk
 		return redirect('/halaman-produk');
     }
 
@@ -77,7 +77,7 @@ class ProdukController extends Controller
 			'harga' => $request->harga,
 			'nama_produk' => $request->nama_produk
 		]);
-		// alihkan halaman ke halaman pegawai
+		// alihkan halaman ke halaman produk
 		return redirect('/halaman-produk');
     }
 

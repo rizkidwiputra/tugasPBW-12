@@ -17,7 +17,7 @@ class TokoController extends Controller
         $countToko =  DB::table('toko')
                     ->selectRaw('toko.*')
                     ->count();
-        return view('toko.pages.listtoko', 
+        return view('toko.pages.listtoko',
         ['toko' => $toko,
         'countToko' => $countToko
         ]  );
@@ -36,7 +36,7 @@ class TokoController extends Controller
             'no_telepon'   => 'required',
             'status'   => 'required'
         ]);
-    
+
         // insert data ke table toko
 		DB::table('toko')->insert([
 			'nama_owner' => $request->nama_owner,
@@ -61,7 +61,7 @@ class TokoController extends Controller
             'no_telepon'   => 'required',
             'status'   => 'required'
         ]);
-    
+
 		DB::table('toko')->where('id',$request->id)->update([
 			'nama_owner' => $request->nama_owner,
 			'nama_toko' => $request->nama_toko,
@@ -75,8 +75,8 @@ class TokoController extends Controller
     public function delete($id){
         // menghapus data pegawai berdasarkan id yang dipilih
 		DB::table('toko')->where('id',$id)->delete();
-		
+
 		// alihkan halaman ke halaman pegawai
-        return redirect('/halaman-toko');    
+        return redirect('/halaman-toko');
     }
 }

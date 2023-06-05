@@ -25,25 +25,6 @@
         @include('produk.components.sidebar')
         <div class="page-wrapper">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col l3 m6 s12">
-                        <div class="card success-gradient card-hover">
-                            <div class="card-content">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <h2 class="white-text m-b-5">{{ $countProduk }}</h2>
-                                        <h6 class="white-text op-5 text-darken-2">Total Produk</h6>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <span class="white-text display-6"><i class="material-icons">equalizer</i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- @include('produk.pages.listproduk') --}}
-
                 @yield('content')
             </div>
         </div>

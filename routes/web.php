@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/halaman-toko/store',[TokoController::class, 'store'])->name('toko.store');
     Route::get('/halaman-toko/edit/{id}',[TokoController::class, 'edit'])->name('toko.edit');
     Route::put('/halaman-toko/update/{id}',[TokoController::class, 'update'])->name('toko.update');
-    Route::delete('/halaman-toko/delet/{id}',[TokoController::class, 'delete'])->name('toko.delete');
+    Route::delete('/halaman-toko/delete/{id}',[TokoController::class, 'delete'])->name('toko.delete');
 });
 
 require __DIR__.'/auth.php';

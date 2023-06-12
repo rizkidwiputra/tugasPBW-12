@@ -45,31 +45,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($produk as $item)
-                                <tr>
-                                    <td>
-                                        <h5 class="m-b-0 font-16 font-medium">{{ $item->toko->nama_toko }}</h5>
-                                    </td>
-                                    <td>
-                                        <img src="{{ asset('./storage/blogs/' . $item->foto_produk) }}" width="200" height="200" alt="">
-                                    </td>
-                                    <td class="blue-grey-text text-darken-4 font-medium">{{ $item->harga }}</td>
-                                    <td class="green-text">{{ $item->nama_produk }}</td>
-                                    <td>
-                                        <a href="{{ url('/halaman-produk/edit/' . $item->id) }}">Edit</a>
-                                        <form action="{{ url('/halaman-produk/delete/' . $item->id) }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" onclick="confirm('yakin menghapus data?')">Delete</button>
-                                        </form>
-                                    </td>
+                                @foreach ($produk as $item)
+                                    <tr>
+                                        <td>
+                                            <h5 class="m-b-0 font-16 font-medium">{{ $item->toko->nama_toko }}</h5>
+                                        </td>
+                                        <td>
+                                            <img src="{{ asset('./storage/blogs/' . $item->foto_produk) }}" width="200"
+                                                height="200" alt="">
+                                        </td>
+                                        <td class="blue-grey-text text-darken-4 font-medium">{{ $item->harga }}</td>
+                                        <td class="green-text">{{ $item->nama_produk }}</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="{{ url('/halaman-produk/edit/' . $item->id) }}" class="btn btn-round purple m-r-5">Edit</a>
+                                                <form action="{{ url('/halaman-produk/delete/' . $item->id) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-round red"
+                                                        onclick="confirm('yakin menghapus data?')">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
-                            @endforeach
+                                @endforeach
                             </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

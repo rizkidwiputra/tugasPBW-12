@@ -49,10 +49,8 @@
 
         <div class="card-content">
             <div class="form-action">
-                <button class="btn cyan waves-effect waves-light" type="submit">Save
-                </button>
-                <button class="btn waves-effect waves-light grey darken-4" type="submit" name="action">Cancel
-                </button>
+                <button class="btn cyan waves-effect waves-light" type="submit">Save</button>
+                <a href="{{ route("toko.show") }}" class="btn waves-effect waves-light grey darken-4">Cancel</a>
             </div>
         </div>
     </form>

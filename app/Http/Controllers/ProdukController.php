@@ -10,22 +10,18 @@ class ProdukController extends Controller
 {
     public function index()
     {
-        $produk = DB::table('produk')
-                    ->selectRaw('produk.*')
-                    ->get();
-        $countProduk = DB::table('produk')
-                    ->selectRaw('produk.*')
-                    ->count();
+        $produk = Produk::all();
+    
  
     	// mengirim data produk ke view index
 		return view('produk.pages.listproduk', [
             'produk' => $produk,
-            'countProduk' => $countProduk
+            'countProduk' => $produk->count()
         ]);
     }
     public function add()
     {
-        $produk = DB::table('produk')->get();
+        $produk = Produk::all();
 
         return view('produk.pages.addproduct', ['produk' => $produk]);
     }
@@ -43,7 +39,7 @@ class ProdukController extends Controller
         $image = $request->file('foto_produk');
         $image->storeAs('public/blogs', $image->hashName());
         // insert data ke table produk
-		DB::table('produk')->insert([
+		Produk::create([
 			'nama_toko' => $request->nama_toko,
 			'foto_produk' => $image->hashName(),
 			'harga' => $request->harga,
@@ -54,7 +50,7 @@ class ProdukController extends Controller
     }
 
     public function edit($id){
-        $produk = DB::table('produk')->where('id',$id)->first();
+        $produk = Produk::where('id',$id)->first();
 		// passing data produk yang didapat ke view edit.blade.php
 		return view('produk.pages.editproduct', ['produk' => $produk]);
     }
@@ -71,7 +67,7 @@ class ProdukController extends Controller
         $image = $request->file('foto_produk');
         $image->storeAs('public/blogs', $image->hashName());
         // insert data ke table produk
-		DB::table('produk')->where('id',$request->id)->update([
+		Produk::where('id',$request->id)->update([
 			'nama_toko' => $request->nama_toko,
 			'foto_produk' => $image->hashName(),
 			'harga' => $request->harga,
@@ -83,7 +79,7 @@ class ProdukController extends Controller
 
     public function delete($id){
         // menghapus data pegawai berdasarkan id yang dipilih
-		DB::table('produk')->where('id',$id)->delete();
+		Produk::where('id',$id)->delete();
 		
 		// alihkan halaman ke halaman pegawai
         return redirect('/halaman-produk');    

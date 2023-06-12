@@ -11,21 +11,16 @@ class TokoController extends Controller
 {
     public function index()
     {
-        $toko = DB::table('toko')
-                    ->selectRaw('toko.*')
-                    ->get();
-        $countToko =  DB::table('toko')
-                    ->selectRaw('toko.*')
-                    ->count();
+        $toko = Toko::all();
         return view('toko.pages.listtoko',
         ['toko' => $toko,
-        'countToko' => $countToko
+        'countToko' => $toko->count()
         ]  );
     }
 
     public function add()
     {
-        $toko = DB::table('toko')->get();
+        $toko = Toko::all();
         return view('toko.pages.addtoko', ['toko' => $toko]);
     }
 
@@ -38,7 +33,7 @@ class TokoController extends Controller
         ]);
 
         // insert data ke table toko
-		DB::table('toko')->insert([
+		Toko::create([
 			'nama_owner' => $request->nama_owner,
 			'nama_toko' => $request->nama_toko,
 			'no_telepon' => $request->no_telepon,
@@ -49,7 +44,7 @@ class TokoController extends Controller
     }
 
     public function edit($id){
-        $toko = DB::table('toko')->where('id',$id)->first();
+        $toko = Toko::where('id',$id)->first();
 		// passing data toko yang didapat ke view edit.blade.php
 		return view('toko.pages.edittoko', ['toko' => $toko]);
     }
@@ -62,7 +57,7 @@ class TokoController extends Controller
             'status'   => 'required'
         ]);
 
-		DB::table('toko')->where('id',$request->id)->update([
+		Toko::where('id',$request->id)->update([
 			'nama_owner' => $request->nama_owner,
 			'nama_toko' => $request->nama_toko,
 			'no_telepon' => $request->no_telepon,
@@ -74,7 +69,7 @@ class TokoController extends Controller
 
     public function delete($id){
         // menghapus data pegawai berdasarkan id yang dipilih
-		DB::table('toko')->where('id',$id)->delete();
+		Toko::where('id',$id)->delete();
 
 		// alihkan halaman ke halaman pegawai
         return redirect('/halaman-toko');

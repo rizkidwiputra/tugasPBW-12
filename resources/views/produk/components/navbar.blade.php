@@ -29,7 +29,13 @@
           <!-- ============================================================== -->
           <li><a class="dropdown-trigger" href="javascript: void(0);" data-target="user_dropdown"><img src="../../assets/images/users/2.jpg" alt="user" class="circle profile-pic"></a>
               <ul id="user_dropdown" class="mailbox dropdown-content dropdown-user">
-                  <li><a href="{{ route('logout') }}"><i class="material-icons">power_settings_new</i> Logout</a></li>
+                <li>
+                    <i class="material-icons">power_settings_new</i>
+                    <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                        <button class="btn ">Logout</button>
+                    </form>
+                </li>
               </ul>
           </li>
       </ul>

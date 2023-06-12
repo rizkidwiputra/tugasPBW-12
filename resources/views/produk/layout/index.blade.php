@@ -8,11 +8,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <title>Pasarpedia</title>
     <!-- chartist CSS -->
-    <link href="{{asset('../../assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
-    <link href="{{asset('../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css')}}" rel="stylesheet">
-    <link href="{{asset('../../dist/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('../../assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css') }}"
+        rel="stylesheet">
+    <link href="{{ asset('../../dist/css/style.css') }}" rel="stylesheet">
     <!-- This page CSS -->
-    <link href="{{asset('../../dist/css/pages/dashboard1.css') }}" rel="stylesheet">
+    <link href="{{ asset('../../dist/css/pages/dashboard1.css') }}" rel="stylesheet">
+
 
 </head>
 
@@ -25,6 +27,14 @@
         @include('produk.components.sidebar')
         <div class="page-wrapper">
             <div class="container-fluid">
+                @if (session('status'))
+                    <div class="card success-gradient">
+                        <div class="card-content">
+
+                        <p class="white-text">{{ session('status') }}</p>
+                        </div>
+                    </div>
+                @endif
                 @yield('content')
             </div>
         </div>

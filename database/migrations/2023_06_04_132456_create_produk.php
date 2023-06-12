@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
-            $table->string("nama_toko");
+            $table->foreignId("toko_id")->constrained('toko');
             $table->string("foto_produk");
-            $table->string("harga");
+            $table->bigInteger("harga");
             $table->string("nama_produk");
             $table->timestamps();
         });

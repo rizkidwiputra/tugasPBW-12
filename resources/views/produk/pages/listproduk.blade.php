@@ -48,7 +48,7 @@
                             @foreach ($produk as $item)
                                 <tr>
                                     <td>
-                                        <h5 class="m-b-0 font-16 font-medium">{{ $item->nama_toko }}</h5>
+                                        <h5 class="m-b-0 font-16 font-medium">{{ $item->toko->nama_toko }}</h5>
                                     </td>
                                     <td>
                                         <img src="{{ asset('./storage/blogs/' . $item->foto_produk) }}" width="200" height="200" alt="">

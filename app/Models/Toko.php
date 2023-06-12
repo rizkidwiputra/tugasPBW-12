@@ -9,4 +9,8 @@ class Toko extends Model
 {
     use HasFactory;
     protected $table = 'toko';
+    public function produk()
+    {
+        return $this->hasMany(Produk::class);
+    }
 }

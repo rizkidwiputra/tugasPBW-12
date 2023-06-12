@@ -14,7 +14,12 @@
                 </div>
             </div>
             <div class="input-field col s9">
-                <input id="com_nh" type="text" name="nama_toko" placeholder="Nama Toko" value="{{old('nama_toko', $produk->nama_toko)}}">
+                {{-- <input id="com_nh" type="text" name="nama_toko" placeholder="Nama Toko" value="{{old('nama_toko', $produk->nama_toko)}}"> --}}
+                <select name="toko_id" id="">
+                    @foreach ($toko as $item)
+                        <option value="{{ $item->id }}" @if ($produk->toko_id == $item->id) selected @endif>{{ $item->nama_toko }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
     

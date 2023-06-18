@@ -37,13 +37,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m6 l6">
+            <div class="col s3">
+                <div class="h-form-label">
+                    <label for="com_nh">Pilih Status</label>
+                </div>
+            </div>
+
+            <div class="input-field col s9">
                 <select name="status">
-                    <option value="" disabled selected>Choose status</option>
+                    <option value="" disabled selected>Pilih Status</option>
                     <option>Active</option>
                     <option>Inactive</option>
                 </select>
-                <label>Select Status</label>
             </div>
         </div>
 

@@ -1,5 +1,5 @@
 
-<aside class="left-sidebar">
+<aside class="left-sidebar" style="backgound-color: whi;">
    <ul id="slide-out" class="sidenav">
        
        <li>

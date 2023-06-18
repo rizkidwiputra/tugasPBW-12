@@ -1,47 +1,62 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!doctype html>
+<html>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Email Address -->
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/logotok.svg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body>
+    <div class="grid grid-cols-2 items-center justify-center h-screen overflow-hidden gap-60" style="background: url({{ url('/assets/images/background.svg') }}); background-repeat: no-repeat;">
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <img src="{{ url('assets/images/header.svg') }}" alt="" class="ml-20">
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <div class="py-8 px-[68px] bg-white max-w-[511px] rounded-[10px] shadow-2xl">
+            <div class="text-center">
+                <img src="{{ url('assets/images/Logo.svg') }}" alt="Pasarpedia" class="mx-auto">
+                <h2 class="font-bold text-xl my-4">Selamat Datang di Pasarpedia</h2>
+            </div>
+            <div>
+                <form id="login-form" action="{{ route('login') }}" method="post">
+                    @csrf
+                    <div class="flex flex-col my-2">
+                        <label for="email" class="text-xs font-semibold">Email</label>
+                        <input id="email" type="text" name="email" placeholder="Nomor Telepon/Email"
+                            class="w-full rounded-[10px] py-5 px-[15px] font-light text-sm my-[7px] border">
+                            @error('email')
+                                <small class="text-red-500">{{ $message }}</small>
+                            @enderror
+                        </div>
+                        <div class="flex flex-col my-2">
+                            <label for="password" class="text-xs font-semibold">Password</label>
+                            <input id="password" name="password" type="password" placeholder="Password"
+                            class="w-full rounded-[10px] py-5 px-[15px] font-light text-sm my-[7px] border">
+                            @error('password')
+                                <small class="text-red-500">{{ $message }}</small>
+                            @enderror
+                    </div>
+                    <button
+                        class="bg-[#006D77] text-center text-white mx-auto w-full mt-6 mb-3 py-3 font-semibold text-xl rounded-[10px]">Login</button>
+                </form>
+                <div class="mx-auto">
+                    <p class="text-[10px] text-black opacity-70 text-center">Dengan Masuk, saya menyetujui <br><span
+                            class="text-[#203864] cursor-pointer">Syarat dan Ketentuan </span>serta <span
+                            class="text-[#203864] cursor-pointer">Kebijakan Privasi</span></p>
+                </div>
+            </div>
         </div>
+    </div>
+</body>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>

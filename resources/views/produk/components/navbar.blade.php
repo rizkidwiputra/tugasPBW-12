@@ -5,16 +5,9 @@
       <!-- ============================================================== -->
       <!-- Logo you can find that scss in header.scss -->
       <!-- ============================================================== -->
-      <a href="javascript:void(0)" class="brand-logo">
-          <span class="icon">
-              <img class="light-logo" src="../../assets/images/logo-light-icon.png">
-              <img class="dark-logo" src="../../assets/images/logo-icon.png">
-          </span>
-          <span class="text">
-              <img class="light-logo" src="../../assets/images/logo-light-text.png">
-              <img class="dark-logo" src="../../assets/images/logo-text.png">
-          </span>
-      </a>
+      <div href="javascript:void(0)" class="brand-logo">
+        <img class="light-logo" src="../../assets/images/logoputih.svg" style="width: 80%; margin-left:auto; margin-right:auto;">
+      </div>
 
       <!-- ============================================================== -->
       <!-- Left topbar icon scss in header.scss -->
